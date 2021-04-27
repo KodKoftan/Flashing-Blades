@@ -1,0 +1,35 @@
+<form class="{{cssClass}} limited" autocomplete="off">
+  {{!-- Sheet Header --}}
+  <div class="sheet-container">
+    <div class="key-art-container">
+      <img class="vertical-img" src="{{data.keyArt}}" data-edit="data.keyArt" title="{{actor.name}}">
+    </div>
+    <div class="gradient-overlay"></div>
+  
+    <div class="char-content-wrapper">
+      <header class="sheet-header">
+
+        <header class="name-plate">
+          <input class="char-name-input" name="name" type="text" value="{{actor.name}}"
+            placeholder="{{localize "YZECORIOLIS.Name"}}" />
+        </header>
+        <div class="char-class">
+          <input class="char-class-input" name="data.bio.concept" type="text" value="{{data.bio.concept}}"
+            placeholder="{{localize "YZECORIOLIS.Concept"}}" />
+        </div>
+      </header>
+      <div class="sheet-body">
+        <nav class="navigation tabs" data-group="primary">
+          <a class="item nav-link" data-tab="charnotes">{{localize "YZECORIOLIS.CharNotes"}}</a>
+        </nav>
+
+        <section class="sheet-panels">
+          {{!-- Notes Tab --}}
+          <div class="tab charnotes" data-group="primary" data-tab="charnotes">
+            {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</form>
